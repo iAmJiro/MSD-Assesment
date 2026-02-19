@@ -57,7 +57,7 @@ namespace Review
                 catch (Exception e)
                 {
                     // Dont think this should ever happen
-                    throw new Exception("Something failed in user creation");
+                    throw new Exception("Something failed in user creation" ,e);
                 }
             }
             return _person;
