@@ -127,9 +127,12 @@ namespace Review
 
         }
 
-        
+        // Filtering by age should not be a boolean argument, it should be an integer argument for better readability and flexibility
         private IEnumerable<People> GetBobs(bool olderThan30) {
 
+            // This line is very hard to read, the logic should be seperated into multiple lines for better readability
+            // If the name of the variable "olderThan30" is what it wants it to be, then the >= should be <= because originally it is checking for people younger than 30
+            // 356 does not complete a full year, it should be 365 instead
             return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");
         }
 
@@ -137,11 +140,27 @@ namespace Review
         {
             if (lastName.Contains("test"))
                 return p.Name;
+
+            /*
+            The expression in this if statement isn't doing what it should be doing
+            If the statement wants to see if the combined length of name and lastName is greater than 255, then it should be "(p.Name + lastName).Length > 255" instead of "(p.Name.Length + lastName).Length > 255"
+            This is because if the name is 100 characters long, p.Name.Length will return 3 as 100 has three characters in it
+            */
             if ((p.Name.Length + lastName).Length > 255) {
                 (p.Name + " " + lastName).Substring(0, 255);
             }
 
             return p.Name + " " + lastName;
         }
+
+        /* 
+        The smelliest from this class for me is 
+        return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");
+        Why? because it's very hard to read, the logic is all in one line and it's difficult to understand what it's doing at first glance
+        It also doesn't do what the boolean variable "olderThan30" is supposed to do, it should be checking for people older than 30, but it is checking for people younger than 30 instead
+
+        A question I would ask the original author is "What is the purpose of the boolean variable "olderThan30" in the GetBobs method? Is it supposed to filter for people older than 30 or younger than 30? And if it's supposed to filter for people older than 30, then why is it checking for people younger than 30 instead?"
+        */
+        
     }
 }
