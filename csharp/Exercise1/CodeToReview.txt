@@ -8,17 +8,53 @@ namespace Review
 {
     public class People
     {
+        /*
+        1: Readonly runs only once but we are talking about a date, a year from now, this would be out of date
+        2: The constructor defaults to age 15. In a BirthingUnit, this should default to age 0
+        2 continued: A fix would be Utc.Now and leave it at that if dob has no value
+        */
         private static readonly DateTimeOffset Under16 = DateTimeOffset.UtcNow.AddYears(-15);
+
+        /*
+        Not too smelly, it's just that a person would most likely have a "firstName" and "lastName" seperately
+        Not just bundled into the "Name"
+        "null" could also be passed here and that might cause issues, the constructor must ensure it isn't "null"
+        */
         public string Name { get; private set; }
+
+        /*
+        Initially "DateTimeOffset"
+        Later on "DOB" is passed on to the People parameter as "DateTime"
+        This would force the compiler to do an implicit conversion for which can create innaccuracy
+        */
         public DateTimeOffset DOB { get; private set; }
 
+        /*
+        1. This chaining loses the "Time" part of "DateTime", it loses precision
+        2. This overrides the what the correct dob should be into a date a long time ago
+        */
         public People(string name) : this(name, Under16.Date) { }
 
+        /*
+        This is where it was passed on as "DateTime" rather than how it was originally declared
+        Other Universities might have been taught this way, but I was taught to write it as this.name = name for safety reasons
+        We don't want to accidentaly write it as "name" rather than "Name"
+        However this is purely personal choice, this doesn't make the code smelly, rather I just want to point it out
+        */
         public People(string name, DateTime dob)
         {
             Name = name;
             DOB = dob;
         }
+
+        /*
+        The smelliest from this class for me is 
+        private static readonly DateTimeOffset Under16 = DateTimeOffset.UtcNow.AddYears(-15);
+        Why 15? a new born should be 0
+        Question for the original author for clarification
+        "Is this "People" class one of many class for which it's civilization has to start at 15?
+        Additionally, why is it named "Under16" then have "-15" as an argument, shouldn't it be -16 or 16? the name adds more to the confusion
+        */
     }
 
     public class BirthingUnit
@@ -26,7 +62,7 @@ namespace Review
         /// <summary>
         /// MaxItemsToRetrieve
         /// </summary>
-        private List<People> _people;
+        private List<People> _people; 
 
         public BirthingUnit() {
             _people = new List<People>();
