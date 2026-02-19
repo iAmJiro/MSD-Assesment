@@ -65,12 +65,17 @@ namespace Review
         public string GetMarried(Person p, string lastName)
         {
             if (lastName.Contains("test"))
-                return p.Name;
-            if ((p.Name.Length + lastName).Length > 255) {
-                (p.Name + " " + lastName).Substring(0, 255);
+            return p.Name;
+
+            string fullName = p.Name + " " + lastName;
+
+            // Fix: You must RETURN the substring result. 
+            // Also, (p.Name.Length + lastName).Length was checking the length of the integer!
+            if (fullName.Length > 255) {
+                return fullName.Substring(0, 255);
             }
 
-            return p.Name + " " + lastName;
+        return fullName;
         }
     }
 }
