@@ -7,9 +7,9 @@ catch you out but to get an understanding of how you think about solving
 problems guided by software engineering principles while capturing learnings and
 intent using the capabilities and tools at your disposal.
 
-It is up to you to manage your time. We do not expect you to finish all of it. 
-So ensure you spend your time on areas that showcase your skills. The answers 
-will be assessed against the role you have applied for so ensure you demonstrate 
+It is up to you to manage your time. We do not expect you to finish all of it.
+So ensure you spend your time on areas that showcase your skills. The answers
+will be assessed against the role you have applied for so ensure you demonstrate
 the key skills and responsibilities expected by the role.
 
 **Commit** to the local git repo **often** to show progress and flow. Ensure
@@ -29,7 +29,7 @@ This assessment can be completed in any of the following technology stacks:
 - [Ruby](./ruby)
 - [TypeScript](./typescript)
 
-We reccomend you use the  
+We recommend you use the  
 [development containers](https://code.visualstudio.com/docs/remote/containers-tutorial).
 Another option is to push the repo to a private github repository and use the built in
 [code spaces](https://github.com/features/codespaces) feature. Or you can run it
@@ -39,7 +39,7 @@ technology stack directories for a full list of dependencies.
 ### To open the workspace in a development container
 
 - [C#](./csharp/.devcontainer/devcontainer.json)
-  To open the workspace run `code csharp` 
+  To open the workspace run `code csharp`
 - [Java](./java/.devcontainer/devcontainer.json)
   To open the workspace run `code java`
 - [JavaScript](./javascript/.devcontainer/devcontainer.json)
@@ -51,7 +51,7 @@ technology stack directories for a full list of dependencies.
 - [typescript](./typescript/.devcontainer/devcontainer.json)
   To open the workspace run `code typescript`
 
-Once this workspace has re-opened in the dev container follow the quick start 
+Once this workspace has re-opened in the dev container follow the quick start
 guide in the local README.md.
 
 ## Submitting
