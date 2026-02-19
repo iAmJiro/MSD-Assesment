@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace Review
 {
-    public class People
+    public class Person
     {
-        private static readonly DateTimeOffset Under16 = DateTimeOffset.UtcNow.AddYears(-15);
         public string Name { get; private set; }
         public DateTimeOffset DOB { get; private set; }
 
-        public People(string name) : this(name, Under16.Date) { }
+        // Change: Default constructor now represents age 0 (UtcNow)
+        public Person(string name) : this(name, DateTimeOffset.UtcNow) { }
 
-        public People(string name, DateTime dob)
+        // Change: Use DateTimeOffset for the parameter to match the property
+        public Person(string name, DateTimeOffset dob)
         {
-            Name = name;
+            // Safety: Ensure name isn't null
+            Name = name ?? throw new ArgumentNullException(nameof(name));
             DOB = dob;
         }
     }
@@ -26,10 +28,10 @@ namespace Review
         /// <summary>
         /// MaxItemsToRetrieve
         /// </summary>
-        private List<People> _people;
+        private List<Person> _person;
 
         public BirthingUnit() {
-            _people = new List<People>();
+            _person = new List<Person>();
         }
 
         /// <summary>
@@ -37,7 +39,7 @@ namespace Review
         /// </summary>
         /// <param name="j"></param>
         /// <returns>List<object></returns>
-        public List<People> GetPeople(int i)
+        public List<Person> GetPeople(int i)
         {
             for (int j = 0; j < i; j++) {
                 try
@@ -50,7 +52,7 @@ namespace Review
                     }
                     else { name = "Betty"; }
                     // Adds new people to the list
-                    _people.Add(new People(name, DateTime.UtcNow.Subtract(new TimeSpan(random.Next(18, 85) * 356, 0, 0, 0))));
+                    _person.Add(new Person(name, DateTimeOffset.UtcNow.Subtract(new TimeSpan(random.Next(18, 85) * 356, 0, 0, 0))));
                 }
                 catch (Exception e)
                 {
@@ -58,14 +60,14 @@ namespace Review
                     throw new Exception("Something failed in user creation");
                 }
             }
-            return _people;
+            return _person;
         }
 
-        private IEnumerable<People> GetBobs(bool olderThan30) {
-            return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");
+        private IEnumerable<Person> GetBobs(bool olderThan30) {
+            return olderThan30 ? _person.Where(x => x.Name == "Bob" && x.DOB >= DateTimeOffset.UtcNow.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _person.Where(x => x.Name == "Bob");
         }
 
-        public string GetMarried(People p, string lastName)
+        public string GetMarried(Person p, string lastName)
         {
             if (lastName.Contains("test"))
                 return p.Name;
