@@ -58,8 +58,17 @@ namespace Review
             return _person;
         }
 
-        private IEnumerable<Person> GetBobs(bool olderThan30) {
-            return olderThan30 ? _person.Where(x => x.Name == "Bob" && x.DOB >= DateTimeOffset.UtcNow.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _person.Where(x => x.Name == "Bob");
+        public IEnumerable<Person> GetBobs(bool olderThan30) 
+        {
+            // Fix: Use <= to find people born in the past (earlier than 30 years ago)
+            if (olderThan30)
+            {
+                // 2026 - 30 years = 1996. We want DOBs of 1995, 1990, etc.
+                DateTimeOffset cutoff = DateTimeOffset.UtcNow.AddYears(-30);
+                return _person.Where(x => x.Name == "Bob" && x.DOB <= cutoff);
+            }
+            // Return separated into multiple lines for readability
+            return _person.Where(x => x.Name == "Bob");
         }
 
         public string GetMarried(Person p, string lastName)
