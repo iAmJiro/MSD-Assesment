@@ -28,38 +28,33 @@ namespace Review
         /// <summary>
         /// MaxItemsToRetrieve
         /// </summary>
-        private List<Person> _person;
-
-        public BirthingUnit() {
-            _person = new List<Person>();
-        }
-
+        private List<Person> _person = new List<Person>();
         /// <summary>
         /// GetPeoples
         /// </summary>
         /// <param name="j"></param>
         /// <returns>List<object></returns>
-        public List<Person> GetPeople(int i)
+        private static readonly Random _random = new Random();
+        public List<Person> GetPeople(int count)
         {
-            for (int j = 0; j < i; j++) {
-                try
-                {
-                    // Creates a dandon Name
-                    string name = string.Empty;
-                    var random = new Random();
-                    if (random.Next(0, 1) == 0) {
-                        name = "Bob";
-                    }
-                    else { name = "Betty"; }
-                    // Adds new people to the list
-                    _person.Add(new Person(name, DateTimeOffset.UtcNow.Subtract(new TimeSpan(random.Next(18, 85) * 356, 0, 0, 0))));
-                }
-                catch (Exception e)
-                {
-                    // Dont think this should ever happen
-                    throw new Exception("Something failed in user creation" ,e);
-                }
+            for (int j = 0; j < count; j++)
+        {
+            try
+            {
+                // Fix: 0 or 1 is now possible because the max (2) is exclusive.
+                string name = _random.Next(0, 2) == 0 ? "Bob" : "Betty";
+                
+                // Fix: Use 365 days. 
+                int ageInYears = _random.Next(18, 85);
+                var dob = DateTimeOffset.UtcNow.AddDays(-(ageInYears * 365));
+
+                _person.Add(new Person(name, dob));
             }
+            catch (Exception e)
+            {
+                throw new Exception("Something failed in user creation", e);
+            }
+        }
             return _person;
         }
 
