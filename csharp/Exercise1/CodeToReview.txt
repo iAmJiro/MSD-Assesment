@@ -56,48 +56,80 @@ namespace Review
         Additionally, why is it named "Under16" then have "-15" as an argument, shouldn't it be -16 or 16? the name adds more to the confusion
         */
     }
-
     public class BirthingUnit
     {
         /// <summary>
         /// MaxItemsToRetrieve
         /// </summary>
+        
         private List<People> _people; 
 
         public BirthingUnit() {
             _people = new List<People>();
         }
 
+        /*
+        The method name "GetPeoples" is not grammatically correct, it should be "GetPeople" instead
+        The argument "i" should be more descriptive, it should be "numberOfPeopleToGenerate" instead of "i" for better readability
+        */
+
         /// <summary>
-        /// GetPeoples
+        /// GetPeoples 
         /// </summary>
         /// <param name="j"></param>
         /// <returns>List<object></returns>
+
+        
+        // The name of this method doesn't say what it's doing, it should be "GenerateRandomPeople" instead of "GetPeople" for better readability
+        
+
         public List<People> GetPeople(int i)
         {
             for (int j = 0; j < i; j++) {
                 try
                 {
+                    // "dandon" is a typo, it should be "random" instead of "dandon"
                     // Creates a dandon Name
+
+                    // It's better to declare the Random variable outside of the loop to avoid creating multiple instances of Random enerating the same sequence of random numbers
                     string name = string.Empty;
                     var random = new Random();
+
+                    /*
+                    In this case, 0 is the only output it will have. meaning "random.Next(0,1) == 0" 
+                    will ALWAYS equal 0 as it will never reach "1"
+                    If 1 is wanted to be reached
+                    The argument should be "random.Next(0,2)" instead of "random.Next(0,1)" to reach the "else" statement
+                    */
                     if (random.Next(0, 1) == 0) {
                         name = "Bob";
+                    
+                    //This else statement will never be reached
                     }
                     else { name = "Betty"; }
                     // Adds new people to the list
+
+                    // A year has 365 days, not 356
+                    // This is difficult to read, this can be broken down into multiple lines for better readability
                     _people.Add(new People(name, DateTime.UtcNow.Subtract(new TimeSpan(random.Next(18, 85) * 356, 0, 0, 0))));
                 }
                 catch (Exception e)
                 {
+
+                    // The comment below is not needed
                     // Dont think this should ever happen
+
+                    // We should be logging the variable "e" here for debugging purposes
                     throw new Exception("Something failed in user creation");
                 }
             }
             return _people;
+
         }
 
+        
         private IEnumerable<People> GetBobs(bool olderThan30) {
+
             return olderThan30 ? _people.Where(x => x.Name == "Bob" && x.DOB >= DateTime.Now.Subtract(new TimeSpan(30 * 356, 0, 0, 0))) : _people.Where(x => x.Name == "Bob");
         }
 
