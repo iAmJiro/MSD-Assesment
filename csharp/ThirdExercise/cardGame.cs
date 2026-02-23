@@ -27,5 +27,4 @@ namespace CardGame.Domain
         // C placeholder
         void Shuffle<C>(IList<C> list);
     }
-
 }

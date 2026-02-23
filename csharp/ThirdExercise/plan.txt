@@ -15,6 +15,9 @@ I have already made a project like this in my first year! I will also provide th
 Originally I wanted to fill the crads using, I wanted to go for the enums path with typeof instead of this way, I feel like this way was
 a bit hard coded but it's cool regardless
 
+I have completely forgotten to make a new console. My Exercise3 never had a csproj
+I will create a new folder that had automatically generated a program.cs due to csproj being created
+
  public Deck() 
     {
         for (CardSuit suit = CardSuit.Clubs; suit <= CardSuit.Spades; suit++) 
@@ -25,3 +28,4 @@ a bit hard coded but it's cool regardless
             }
         }
     }
+

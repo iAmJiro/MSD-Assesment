@@ -1,0 +1,15 @@
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\obj\Debug\net9.0\ThirdExercise.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\obj\Debug\net9.0\ThirdExercise.AssemblyInfoInputs.cache
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\obj\Debug\net9.0\ThirdExercise.AssemblyInfo.cs
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\obj\Debug\net9.0\ThirdExercise.csproj.CoreCompileInputs.cache
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\obj\Debug\net9.0\ThirdExercise.sourcelink.json
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\bin\Debug\net9.0\ThirdExercise.exe
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\bin\Debug\net9.0\ThirdExercise.deps.json
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\bin\Debug\net9.0\ThirdExercise.runtimeconfig.json
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\bin\Debug\net9.0\ThirdExercise.dll
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\bin\Debug\net9.0\ThirdExercise.pdb
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\obj\Debug\net9.0\ThirdExercise.dll
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\obj\Debug\net9.0\refint\ThirdExercise.dll
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\obj\Debug\net9.0\ThirdExercise.pdb
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\obj\Debug\net9.0\ThirdExercise.genruntimeconfig.cache
+C:\Users\GGPC\Desktop\MSD Assesment\csharp\ThirdExercise\obj\Debug\net9.0\ref\ThirdExercise.dll
