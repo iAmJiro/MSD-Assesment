@@ -40,5 +40,19 @@ namespace ThirdExercise
 
             Assert.Equal(initialCount - 1, deck.RemainingCards);
         }
+        [Fact]
+        public void Draw_ShouldThrowException_WhenDeckIsEmpty()
+        {
+            var deck = new Deck();
+            
+            // Empty the deck by drawing all 52 cards
+            for (int i = 0; i < 52; i++)
+            {
+                deck.Draw();
+            }
+
+            var exception = Assert.Throws<InvalidOperationException>(() => deck.Draw());
+            Assert.Equal("No cards left in the deck.", exception.Message);
+        }
     }
 }
