@@ -1,0 +1,23 @@
+Scaffolding - I understood it as how this can be built out for future developers to implemenet new features
+The enums can be easily updated with more imaginative suits and more creative numbering (just make sure you declare the value, for example L = 50)
+The shuffling method can also be different, The fisher-yates method just stood out to me
+
+A significant design approach I pursued is that
+I used specific accessibility levels for classes, methods, etc. to try and mimic a real life scenario; where if data is not needed to be read - 
+then don't pass it to the next class.
+e.g: I made Random private, because it only needed to be seen in the Shuffling class
+
+Lessons I've learned during this assessment
+- I learned what the term code smell is
+- I relearned how to make a card shuffling project
+- Make sure to make the project, not just make a folder
+- Don't hesitate to use A.I as it will help you debug, give suggetsions
+- What .Domain and .Infrastructure is
+- Had a revision on abstract class and interfaces
+- Had a revision on readonly
+- Unit testing properly, I have done research on how to put it to practice (TDD)
+- Test for NULL!
+
+What suprised me during the implementation
+- The terminal is very clear on xUnit testing, to show if the tests passed
+- That sometimes, small fault in logics can mean big things, e.g how 356 is easily mistaken as 365 if the code is just skim-read (I didn't catch it out on the first read of the code)
