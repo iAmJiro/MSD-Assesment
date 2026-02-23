@@ -21,3 +21,5 @@ Lessons I've learned during this assessment
 What suprised me during the implementation
 - The terminal is very clear on xUnit testing, to show if the tests passed
 - That sometimes, small fault in logics can mean big things, e.g how 356 is easily mistaken as 365 if the code is just skim-read (I didn't catch it out on the first read of the code)
+- This took a while! I thought I could try the assessment out on different languages but I will run out of time, I had a look at the others though
+    - and it showcased similar problems so perhaps the one language is enough
