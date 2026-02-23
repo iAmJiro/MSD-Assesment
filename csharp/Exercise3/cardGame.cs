@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CardGame.Domain;
 
 namespace CardGame.Domain
 {
@@ -23,7 +24,8 @@ namespace CardGame.Domain
     }
     public interface IShuffler
     {
-        // T used for placeholder
-        void Shuffle<T>(IList<T> list);
+        // C placeholder
+        void Shuffle<C>(IList<C> list);
     }
+
 }

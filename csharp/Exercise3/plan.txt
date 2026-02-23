@@ -9,3 +9,19 @@
 3: Build the deck manager
     Task    - To write the code that pulls the card one by one
     Reason  - We don't want the cards to accidentally vanish, this needs to be spot on
+
+
+
+Originally I wanted to fill the crads using, I wanted to go for the enums path with typeof instead of this way, I feel like this way was
+a bit hard coded but it's cool regardless
+
+ public Deck() 
+    {
+        for (CardSuit suit = CardSuit.Clubs; suit <= CardSuit.Spades; suit++) 
+        {
+            for (CardRank rank = CardRank.Ace; rank <= CardRank.King; rank++) 
+            {
+                cards.Add(new PlayingCard(rank, suit));
+            }
+        }
+    }

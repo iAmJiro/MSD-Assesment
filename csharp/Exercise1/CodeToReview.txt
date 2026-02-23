@@ -20,6 +20,7 @@ namespace Review
         Not just bundled into the "Name"
         "null" could also be passed here and that might cause issues, the constructor must ensure it isn't "null"
         */
+
         public string Name { get; private set; }
 
         /*
