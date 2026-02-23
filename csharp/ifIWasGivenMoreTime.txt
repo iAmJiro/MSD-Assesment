@@ -6,3 +6,4 @@ I also resulted in the simple playing cards, If I had more time I would explore 
 To be honest, I had enough time. My constant practice of the language and programming principles has helped me a lot, even though I was in the middle
     of moving houses during this assessment, I was confident that I will get it done due to my background in Information Technology
 If I wasn't in the middle of the move, I would have taken more time just reviewing the resources in the appendix also.
+Perhaps more unit tests could have been done
