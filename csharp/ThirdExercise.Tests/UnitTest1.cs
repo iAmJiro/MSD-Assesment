@@ -54,5 +54,12 @@ namespace ThirdExercise
             var exception = Assert.Throws<InvalidOperationException>(() => deck.Draw());
             Assert.Equal("No cards left in the deck.", exception.Message);
         }
+        [Fact]
+        public void Shuffle_ShouldThrowException_WhenShufflerIsNull()
+        {
+          
+            var deck = new Deck();
+            Assert.Throws<ArgumentNullException>(() => deck.Shuffle(null!));
+        }
     }
 }
