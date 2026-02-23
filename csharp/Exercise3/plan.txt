@@ -1,0 +1,11 @@
+1: Define what a deck of cards is
+    Task    - For this assessment, I will be using the regular 52 cards, 4 ranks and 12 cards in each respective rank
+    Reason  - We need to agree on what a card means in this exercise
+
+2: Separate the action from the logic
+    Task    - We will create an interface for how to shuffle
+    Reason  - Since shuffling is random, if we seperate it; we can test the logic without the randomness in the way
+
+3: Build the deck manager
+    Task    - To write the code that pulls the card one by one
+    Reason  - We don't want the cards to accidentally vanish, this needs to be spot on
