@@ -27,7 +27,7 @@ namespace ThirdExercise
 
             // These will now work because 'using CardGame.Domain' finds Suit and Rank
             Assert.Equal(Suit.Hearts, card.Suit);
-            Assert.Equal(Rank.Two, card.Rank);
+            Assert.Equal(Rank.Ace, card.Rank);
         }
 
         [Fact]
