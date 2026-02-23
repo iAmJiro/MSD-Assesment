@@ -21,4 +21,9 @@ namespace CardGame.Domain
     {
         // This record represents a single playing card with a suit and rank
     }
+    public interface IShuffler
+    {
+        // T used for placeholder
+        void Shuffle<T>(IList<T> list);
+    }
 }
