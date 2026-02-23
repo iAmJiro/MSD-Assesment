@@ -33,4 +33,14 @@ namespace CardGame.Domain
         // Shuffles deck using the shuffler from cardGame.cs
         shuffler.Shuffle(_cards);
     }
+    public Card Draw()
+    {
+
+        // If no cards, say there are no cards
+        if(!_cards.Any()) throw new InvalidOperationException("No cards left in the deck.");
+        // FIFO
+        var card = _cards[0];
+        _cards.RemoveAt(0);
+        return card;
+    }
 }   
